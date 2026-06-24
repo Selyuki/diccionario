@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diccionario de 7 Letras - Animación Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:ital@1&family=Special+Elite&family=Cabin:wght@500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* FONDO: Textura de listones de madera */
+        body {
+            background-color: #5c4033;
+            background-image: url('https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=1920'); 
+            background-size: cover;
+            background-attachment: fixed;
+            color: #f5ebd3;
+            font-family: 'Cabin', sans-serif;
+            padding-bottom: 50px;
+        }
+
+        /* Títulos principales (Fuente 1) */
+        .titulo-principal {
+            font-family: 'Cinzel', serif;
+            color: #ffd54f; 
+            text-shadow: 3px 3px 5px rgba(0,0,0,0.8);
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Subtítulos de las letras (Fuente 2) */
+        .letra-titulo {
+            font-family: 'Playfair Display', serif;
+            color: #ffb74d; 
+            border-bottom: 2px solid #ffb74d;
+            margin-top: 30px;
+            padding-left: 10px;
+        }
+
+        /* Palabras del diccionario (Fuente 3) */
+        .palabra-termino {
+            font-family: 'Special Elite', monospace;
+            color: #a5d6a7; 
+            font-size: 1.3rem;
+        }
+
+        /* Significado (Fuente 4) */
+        .palabra-definicion {
+            font-family: 'Cabin', sans-serif;
+            color: #e0e0e0;
+            margin-bottom: 15px;
+        }
+
+        /* Tarjetas con tono de madera contrastante */
+        .contenedor-madera {
+            background: rgba(38, 20, 10, 0.92);
+            border: 2px solid #5d4037;
+            border-radius: 12px;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.6);
+            padding: 25px;
+            margin-top: 25px;
+        }
+
+        /* Base para las imágenes */
+        .contenedor-img {
+            overflow: hidden;
+            border-radius: 8px;
+            border: 4px solid #8d6e63;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+            height: 200px;
+            position: relative;
+        }
+
+        .img-movimiento {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease-in-out;
+        }
+
+        /* ==================================================
+           7 ESTILOS DE MOVIMIENTO DIFERENTES EN CSS
+           ================================================== */
+        .estilo-mov-1:hover .img-movimiento { transform: scale(1.2); }
+        .estilo-mov-2:hover .img-movimiento { transform: scale(1.1) rotate(8deg); }
+        .estilo-mov-3:hover .img-movimiento { transform: translateX(15%); }
+        .estilo-mov-4 { perspective: 1000px; }
+        .estilo-mov-4:hover .img-movimiento { transform: rotateY(180deg); }
+        .estilo-mov-5:hover .img-movimiento { filter: grayscale(100%) blur(3px); transform: scale(1.05); }
+        .estilo-mov-6:hover .img-movimiento { transform: scale(1.1) skewX(-10deg); }
+        
+        .estilo-mov-7 .overlay-cortina {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background-color: rgba(255, 213, 79, 0.7);
+            overflow: hidden; width: 100%; height: 0; transition: .5s ease;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .estilo-mov-7:hover .overlay-cortina { height: 100%; }
+        .cortina-texto { color: #26140a; font-family: 'Cinzel', serif; font-size: 1.5rem; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1" style="font-family: 'Cinzel', serif;">Taller Web</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-brand ms-auto list-unstyled fs-6 pt-2">
+                    <li>Bitácora del Desarrollador</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="alert alert-warning alert-dismissible fade show text-dark bg-warning-subtle border-warning" role="alert">
+            <strong>¡Efecto Bootstrap activo!</strong> Pasa el cursor por las imágenes para ver los 7 movimientos CSS diferentes. Puedes cerrar esta alerta con una animación de Bootstrap.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <h1 class="titulo-principal my-5">Diccionario de 7 Movimientos</h1>
+        <p class="text-center text-muted" style="color: #ffe082 !important;">14 Palabras • 7 Estilos de Animación Distintos</p>
+
+        <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <div class="contenedor-madera">
+                    <h3 class="letra-titulo">Letra A (Zoom)</h3>
+                    <div class="contenedor-img estilo-mov-1 mb-3">
+                        <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=500" class="img-movimiento" alt="Árbol">
+                    </div>
+                    <p><strong class="palabra-termino">Árbol:</strong> <span class="palabra-definicion">Planta de tronco leñoso que se ramifica a cierta altura del suelo.</span></p>
+                    <p><strong class="palabra-termino">Aurora:</strong> <span class="palabra-definicion">Luz sonrosada que precede inmediatamente a la salida del sol.</span></p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="contenedor-madera">
+                    <h3 class="letra-titulo">Letra B (Rotación 2D)</h3>
+                    <div class="contenedor-img estilo-mov-2 mb-3">
+                        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=500" class="img-movimiento" alt="Bosque">
+                    </div>
+                    <p><strong class="palabra-termino">Bosque:</strong> <span class="palabra-definicion">Sitio poblado de árboles y matas de forma densa.</span></p>
+                    <p><strong class="palabra-termino">Bitácora:</strong> <span class="palabra-definicion">Libro en que se apunta el rumbo y las eventualidades de la navegación.</span></p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="contenedor-madera">
+                    <h3 class="letra-titulo">Letra C (Deslizar)</h3>
+                    <div class="contenedor-img estilo-mov-3 mb-3">
+                        <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=500" class="img-movimiento" alt="Cosmos">
+                    </div>
+                    <p><strong class="palabra-termino">Cosmos:</strong> <span class="palabra-definicion">El universo ordenado, considerado como un sistema armónico.</span></p>
+                    <p><strong class="palabra-termino">Cascada:</strong> <span class="palabra-definicion">Corriente de agua que cae desde cierta altura por un desnivel.</span></p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="contenedor-madera">
+                    <h3 class="letra-titulo">Letra D (Giro 3D)</h3>
+                    <div class="contenedor-img estilo-mov-4 mb-3">
+                        <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=500" class="img-movimiento" alt="Destello">
+                    </div>
+                    <p><strong class="palabra-termino">Destello:</strong> <span class="palabra-definicion">Resplandor vivo y efímero, ráfaga de luz que se enciende y apaga.</span></p>
+                    <p><strong class="palabra-termino">Duna:</strong> <span class="palabra-definicion">Colina de arena movediza que en los desiertos forma y muda el viento.</span></p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="contenedor-madera">
+                    <h3 class="letra-titulo">Letra E (Gris+Blur)</h3>
+                    <div class="contenedor-img estilo-mov-5 mb-3">
+                        <img src="https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?q=80&w=500" class="img-movimiento" alt="Estrella">
+                    </div>
+                    <p><strong class="palabra-termino">Estrella:</strong> <span class="palabra-definicion">Cuerpo celeste que brilla en el cielo con luz propia.</span></p>
+                    <p><strong class="palabra-termino">Eco:</strong> <span class="palabra-definicion">Repetición de un sonido producido al reflejarse las ondas sonoras.</span></p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="contenedor-madera">
+                    <h3 class="letra-titulo">Letra F (Cizalla)</h3>
+                    <div class="contenedor-img estilo-mov-6 mb-3">
+                        <img src="https://images.unsplash.com/photo-1461360228754-6e81c478b882?q=80&w=500" class="img-movimiento" alt="Faro">
+                    </div>
+                    <p><strong class="palabra-termino">Faro:</strong> <span class="palabra-definicion">Torre alta con una luz potente para guiar a los navegantes por la noche.</span></p>
+                    <p><strong class="palabra-termino">Fuego:</strong> <span class="palabra-definicion">Calor y luz producidos por la combustión de una materia.</span></p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mx-auto">
+                <div class="contenedor-madera">
+                    <h3 class="letra-titulo">Letra G (Cortina)</h3>
+                    <div class="contenedor-img estilo-mov-7 mb-3">
+                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=500" class="img-movimiento" alt="Glaciar">
+                        <div class="overlay-cortina">
+                            <div class="cortina-texto">Glaciar</div>
+                        </div>
+                    </div>
+                    <p><strong class="palabra-termino">Glaciar:</strong> <span class="palabra-definicion">Gran masa de hielo que se forma en las altas montañas y desciende lentamente.</span></p>
+                    <p><strong class="palabra-termino">Galaxia:</strong> <span class="palabra-definicion">Agrupación enorme de estrellas, cuerpos celestes y materia cósmica.</span></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
